@@ -1,16 +1,18 @@
 <template>
   <div id="app">
-    <Login/>
+    <Dashboard/>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import Login from './views/Login.vue'
+import Dashboard from './views/Dashboard.vue'
+
 export default {
   name: 'App',
   components: {
-    Login
+    Dashboard
   }
 }
 </script>

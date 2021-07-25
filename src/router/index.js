@@ -10,11 +10,14 @@ export default new VueRouter({
     routes: [
         {
             path: '/',
-            component: Login
+            component: Login,
+            children: [
+                {
+                    path: '/dashboard',
+                    component: Dashboard
+                }
+            ]
         },
-        {
-            path: '/dashboard',
-            component: Dashboard
-        }
     ]
+
 })
