@@ -67,10 +67,12 @@
 
         <el-main>
             <div class="navbar">
+                <div class="folder">
+                    <i class="el-icon-s-fold"></i>
+                </div>
                 <el-breadcrumb>
                     <el-breadcrumb-item>
-                        <i class="el-icon-s-fold"></i>
-                        折叠
+                        Dashboard
                     </el-breadcrumb-item>
                 </el-breadcrumb>
                 <div class="right-menu">
@@ -107,15 +109,45 @@ export default {
 </script>
 
 <style>
-.el-breadcrumb{
-    font-size: 18px;
-}
 
 .navbar{
     height: 50px;
+    overflow: hidden;
+    position: relative;
+    background: #ffffff;
+    box-shadow: 0 1px 4px rgba(0,21,41,.08);
+}
+
+.folder{
+    float: left;
+    height: 100%;
+    line-height: 46px;
+    cursor: pointer;
+    vertical-align: middle;
+    padding: 0px 15px;
+}
+
+.el-breadcrumb{
+    float: left;
+    font-size: 14px;
+    line-height: 50px;
+    margin-left: 8px;
 }
 
 .right-menu{
     float: right;
+    height: 100%;
 }
+
+.el-dropdown-link{
+    cursor: pointer;
+    line-height: 50px;
+}
+
+.el-dropdown-link img{
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
+}
+
 </style>
