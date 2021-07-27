@@ -1,11 +1,10 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <Dashboard/>
   </div>
 </template>
 
 <script>
-import router from './router/index'
 import HelloWorld from './components/HelloWorld.vue'
 import Login from './views/Login.vue'
 import Dashboard from './views/Dashboard.vue'
@@ -14,8 +13,7 @@ export default {
   name: 'App',
   components: {
     Dashboard
-  },
-  router: router
+  }
 }
 </script>
 

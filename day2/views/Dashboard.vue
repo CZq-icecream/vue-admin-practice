@@ -5,11 +5,10 @@
                 class="el-menu-vertical-demo"
                 background-color="#2d3a4b"
                 text-color="#ffffff"
-                :collapse="isCollapse" 
-                :router="true"
+                :collapse="isCollapse"
                 >
                 <el-menu-item-group>
-                    <el-menu-item index="#">
+                    <el-menu-item>
                         <i class="el-icon-s-grid"></i>
                         <span>Dashboard</span>
                     </el-menu-item>
@@ -45,7 +44,7 @@
                         <el-menu-item>Menu1-1</el-menu-item>
                         <el-submenu index="1-1-1">
                             <template slot="title">
-                                Menu1-2
+                                Menu1-1
                             </template>
                             <el-menu-item>Menu1-2-1</el-menu-item>
                             <el-menu-item>Menu1-2-2</el-menu-item>
@@ -93,7 +92,6 @@
                     </el-dropdown>
                 </div>
             </div>
-            <router-view></router-view>
         </el-main>
     </el-container>
 </template>
