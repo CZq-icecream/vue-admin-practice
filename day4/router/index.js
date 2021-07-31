@@ -76,19 +76,13 @@ export default new VueRouter({
                         },
                         {
                             path: 'menu2',
-                            component: () => import('../views/nested/menu2/index')
+                            component: () => import('../views/nested/menu2/index'),
+                            meta: {title: 'Menu2'}
                         }
                     ]
                 }
             ]
-        },
-        
-        
-        {
-            path: '/dashboard',
-            component: Dashboard
-        },
-        
+        }
     ]
 
 })

@@ -7,6 +7,8 @@ import Table from '../views/example/Table'
 import Tree from '../views/example/Tree'
 import Form from '../views/Form'
 
+import Layout from '@/layout/index'
+
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -16,8 +18,9 @@ export default new VueRouter({
             component: Login
         },
         {
-            path: '/dashboard',
-            component: Dashboard,
+            path: '/',
+            component: Layout,
+            redirect: '/dashboard',
             meta: {title: 'Dashboard'},
             children: [
                 {
@@ -76,18 +79,13 @@ export default new VueRouter({
                         },
                         {
                             path: 'menu2',
-                            component: () => import('../views/nested/menu2/index')
+                            component: () => import('../views/nested/menu2/index'),
+                            meta: {title: 'Menu2'}
                         }
                     ]
                 }
             ]
-        },
-        
-        
-        {
-            path: '/dashboard',
-            component: Dashboard
-        },
+        }
         
     ]
 
