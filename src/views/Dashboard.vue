@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>I am Dashboard View</h1>
+
     </div>
 </template>
 

@@ -3,12 +3,7 @@
         <div class="folder">
             <i class="el-icon-s-fold"></i>
         </div>
-        <el-breadcrumb>
-            <el-breadcrumb-item v-for="(item, index) in levelList" :key="index">
-                <span v-if="index == levelList.length - 1">{{item.meta.title}}</span>
-                <a v-else @click.prevent="handleLink(item)">{{item.meta.title}}</a>
-            </el-breadcrumb-item>
-        </el-breadcrumb>
+        <Breadcrumb/>
         <div class="right-menu">
             <el-dropdown trigger="click">
                 <span class="el-dropdown-link">
@@ -25,7 +20,6 @@
                 </el-dropdown-menu>
             </el-dropdown>
         </div>
-        <router-view/>
     </div>
 </template>
 
@@ -33,8 +27,11 @@
 import Vue from 'vue'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import Breadcrumb from '../../components/breadcrumb/Breadcrumb'
 export default {
-
+    components: {
+        Breadcrumb
+    }
 }
 </script>
 

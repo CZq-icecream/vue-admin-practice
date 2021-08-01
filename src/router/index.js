@@ -24,69 +24,102 @@ export default new VueRouter({
             meta: {title: 'Dashboard'},
             children: [
                 {
-                    path: 'form',
-                    component: Form,
-                    meta: {title: 'Form'}
+                    path: '/dashboard',
+                    component: Dashboard,
+                    // meta: {title: 'Dashboard'}
                 },
                 {
-                    path: 'example/table',
-                    component: Table,
-                    meta: {title: 'Table'}
-                },
-                {
-                    path: 'example/tree',
-                    component: Tree,
-                    meta: {title: 'Tree'}
-                },
-                {
-                    path: 'nested',
-                    component: () => import('../views/nested/index'),
-                    meta: {title: 'Nested'},
+                    path: 'example',
+                    meta: {title: 'Example'},
                     children: [
                         {
-                            path: 'menu1',
-                            component: () => import('../views/nested/menu1/index'),
-                            meta: {title: 'Menu1'},
-                            children: [
-                                {
-                                    path: 'menu1-1',
-                                    component: () => import('../views/nested/menu1/menu1-1/index'),
-                                    meta: {title: 'Menu1-1'}
-                                },
-                                {
-                                    path: 'menu1-2',
-                                    component: () => import('../views/nested/menu1/menu1-2/index'),
-                                    meta: {title: 'Menu1-2'},
-                                    children: [
-                                        {
-                                            path: 'menu1-2-1',
-                                            component: () => import('../views/nested/menu1/menu1-2/menu1-2-1/index'),
-                                            meta: {title: 'Menu1-2-1'}
-                                        },
-                                        {
-                                            path: 'menu1-2-2',
-                                            component: () => import('../views/nested/menu1/menu1-2/menu1-2-2/index'),
-                                            meta: {title: 'Menu1-2-2'}
-                                        }
-                                    ]
-                                },
-                                {
-                                    path: 'menu1-3',
-                                    component: () => import('../views/nested/menu1/menu1-3/index'),
-                                    meta: {title: 'Menu1-3'}
-                                },
-                            ]
+                            path: 'table',
+                            component: Table,
+                            meta: {title: 'Table'}
                         },
                         {
-                            path: 'menu2',
-                            component: () => import('../views/nested/menu2/index'),
-                            meta: {title: 'Menu2'}
+                            path: 'Tree',
+                            component: Tree,
+                            meta: {title: 'Tree'}
                         }
                     ]
                 }
             ]
+        },
+        // {
+        //     path: '/example',
+        //     component: Layout,
+        //     meta: {title: 'Example'},
+        //     children: [
+        //         {
+        //             path: 'table',
+        //             component: Table,
+        //             meta: {title: 'Table'}
+        //         },
+        //         {
+        //             path: 'Tree',
+        //             component: Tree,
+        //             meta: {title: 'Tree'}
+        //         }
+        //     ]
+        // },
+        {
+            path: '/form',
+            component: Layout,
+            meta: {title: 'Form'},
+            children: [
+                {
+                    path: 'index',
+                    component: Form,
+                }
+            ]
+        },
+        {
+            path: '/nested',
+            component: Layout,
+            meta: {title: 'Nested'},
+            children: [
+                {
+                    path: 'menu1',
+                    component: () => import('../views/nested/menu1/index'),
+                    meta: {title: 'Menu1'},
+                    children: [
+                        {
+                            path: 'menu1-1',
+                            component: () => import('../views/nested/menu1/menu1-1/index'),
+                            meta: {title: 'Menu1-1'}
+                        },
+                        {
+                            path: 'menu1-2',
+                            component: () => import('../views/nested/menu1/menu1-2/index'),
+                            meta: {title: 'Menu1-2'},
+                            children: [
+                                {
+                                    path: 'menu1-2-1',
+                                    component: () => import('../views/nested/menu1/menu1-2/menu1-2-1/index'),
+                                    meta: {title: 'Menu1-2-1'}
+                                },
+                                {
+                                    path: 'menu1-2-2',
+                                    component: () => import('../views/nested/menu1/menu1-2/menu1-2-2/index'),
+                                    meta: {title: 'Menu1-2-2'}
+                                }
+                            ]
+                        },
+                        {
+                            path: 'menu1-3',
+                            component: () => import('../views/nested/menu1/menu1-3/index'),
+                            meta: {title: 'Menu1-3'}
+                        },
+                    ]
+                },
+                {
+                    path: 'menu2',
+                    component: () => import('../views/nested/menu2/index'),
+                    meta: {title: 'Menu2'}
+                }
+            ]
         }
-        
     ]
 
 })
