@@ -3,16 +3,16 @@
         class="el-menu-vertical-demo"
         background-color="#2d3a4b"
         text-color="#ffffff"
-        :isCollapse="isCollapse"
-        :collapse="isCollapse"
+        :collapse="isCollapse" 
         :router="true"
         >
-
-        <el-menu-item index="/dashboard">
-            <i class="el-icon-s-grid"></i>
-            <span>Dashboard</span>
-        </el-menu-item>
-
+        <el-menu-item-group>
+            <el-menu-item index="/dashboard">
+                <i class="el-icon-s-grid"></i>
+                <span>Dashboard</span>
+            </el-menu-item>
+        </el-menu-item-group>
+        
         <el-submenu index="/example">
             <template slot="title">
                 <i class="el-icon-s-help"></i>
@@ -63,10 +63,12 @@
             </el-menu-item>
         </el-submenu>
 
-        <el-menu-item>
-            <i class="el-icon-link"></i>
-            <span>External Link</span>
-        </el-menu-item>
+        <el-menu-item-group>
+            <el-menu-item>
+                <i class="el-icon-link"></i>
+                <span>External Link</span>
+            </el-menu-item>
+        </el-menu-item-group>
     </el-menu>
 </template>
 
@@ -76,10 +78,9 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
 export default {
-    props: {
-        isCollapse: {
-            type: Boolean,
-            required: true
+    data(){
+        return {
+            isCollapse: false,
         }
     }
 }

@@ -33,6 +33,8 @@ export default {
             )
             let firstRoute = matched[0];
             if (!firstRoute.meta || firstRoute.meta.title !== 'Dashboard'){
+                console.log(firstRoute.meta);
+                console.log(firstRoute.meta.title);
                 matched.unshift({
                     path: '/dashboard',
                     meta: {title: 'Dashboard'}

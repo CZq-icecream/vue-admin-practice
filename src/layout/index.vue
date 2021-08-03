@@ -1,10 +1,13 @@
 <template>
     <el-container>
-        <el-aside>
-            <SideBar/>
+        <!-- 给el-side添加width属性，防止隐藏和显示导航栏时出现bug -->
+        <!-- 也可以给SideBar添加宽度属性（可以参考官网的demo） -->
+        <!-- https://juejin.cn/post/6844903815527956494 -->
+        <el-aside width="initial">
+            <SideBar :isCollapse="isCollapse"/>
         </el-aside>
         <el-main>
-            <AppMain/>
+            <AppMain @changeCollapse="changeCollapse(isCollapse)"/>
             <router-view/>
         </el-main>
     </el-container>
@@ -22,8 +25,18 @@ Vue.use(ElementUI)
 export default {
     name: 'Layout',
     components: {
-        SideBar, 
+        SideBar,
         AppMain
+    },
+    data(){
+        return {
+            isCollapse: false
+        }
+    },
+    methods: {
+        changeCollapse(isCollapse){
+            this.isCollapse = isCollapse;
+        }
     }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
     <div class="navbar">
         <div class="folder">
-            <i class="el-icon-s-fold" :changeCollapse="changeCollapse"></i>
+            <i class="el-icon-s-fold"></i>
         </div>
         <Breadcrumb/>
         <div class="right-menu">
@@ -31,20 +31,6 @@ import Breadcrumb from '../../components/breadcrumb/Breadcrumb'
 export default {
     components: {
         Breadcrumb
-    },
-    data(){
-        return {
-            isCollapse: true
-        }
-    },
-    methods:{
-        changeCollapse(){
-            this.isCollapse = !this.isCollapse;
-            this.$emit('changeCollapse', this.isCollapse);
-        }
-    },
-    mounted() {
-        this.$emit('changeCollapse', this.isCollapse);
     }
 }
 </script>
