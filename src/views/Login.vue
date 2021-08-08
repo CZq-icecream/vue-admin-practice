@@ -1,6 +1,8 @@
 <template>
     <div class="login-container">
-        <el-form class="login-form">
+        <el-form class="login-form"
+                ref="loginForm"
+                >
             <div class="title-container">
                 <h3 class="title">Login Form</h3>
             </div>
@@ -11,20 +13,20 @@
                 <el-input
                     placeholder="admin"
                     prefix-icon="el-icon-user-solid"
-                    >
+                    v-model="loginForm.username">
                 </el-input>
             </el-form-item>
             <el-form-item>
                 <el-input
-                    v-model="password"
                     placeholder="password"
+                    v-model="loginForm.password"
                     show-password>
                     <i slot="prefix" class="el-icon-lock"/>
                 </el-input>
             </el-form-item>
             <el-button 
                 type="primary"
-            >
+                @click="handleLogin">
                 Login
             </el-button>
             <div class="tips">
@@ -40,12 +42,49 @@
 import Vue from 'vue'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import axios from 'axios'
 
 Vue.use(ElementUI)
 export default {
     data(){
         return {
-            password: ''
+            loginForm: {
+                username: '',
+                password: ''
+            }
+        }
+    },
+    methods:{
+        handleLogin(){
+            let loginForm = this.loginForm;
+            let p = new Promise((resolve, reject) => {
+                let req = new XMLHttpRequest();
+                let url = 'http://localhost:8080/vue-admin-template/user/login';
+                let p = new Promise((resolve, reject) => {
+                    req.open('post', url, true);
+                    req.send(loginForm);
+                    // req.send();
+                    console.log(req);
+                    req.onreadystatechange = function(){
+                        if (req.readyState == 4 && req.status == 200){
+                            // resolve(req.responseText);
+                            resolve('success');
+                        }else{
+                            // reject(req.responseText);
+                            reject('failure');
+                        }
+                    }
+                })
+            });
+            p.then((value) => {
+                //success
+                console.log('resolve:' + value);
+            }, (value) => {
+                //fail
+                console.log('reject:' + value);
+            }).catch((error) => {
+                console.log('catch:' + error);
+            })
         }
     }
 }

@@ -1,7 +1,7 @@
 <template>
     <div class="navbar">
-        <div class="folder">
-            <i class="el-icon-s-fold" :changeCollapse="changeCollapse"></i>
+        <div class="folder" @click="handleFolder">
+            <i class="el-icon-s-fold"></i>
         </div>
         <Breadcrumb/>
         <div class="right-menu">
@@ -34,17 +34,17 @@ export default {
     },
     data(){
         return {
-            isCollapse: true
+            isCollapse: false
         }
     },
     methods:{
-        changeCollapse(){
+        handleFolder(){
             this.isCollapse = !this.isCollapse;
-            this.$emit('changeCollapse', this.isCollapse);
+            this.$emit('handleFolder', this.isCollapse);
         }
     },
     mounted() {
-        this.$emit('changeCollapse', this.isCollapse);
+        this.$emit('handleFolder', this.isCollapse);
     }
 }
 </script>

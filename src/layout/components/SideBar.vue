@@ -86,5 +86,7 @@ export default {
 </script>
 
 <style>
-
+.el-menu:not(.el-menu--collapse){
+    width: 300px;
+}
 </style>

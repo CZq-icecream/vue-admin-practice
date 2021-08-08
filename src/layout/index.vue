@@ -7,8 +7,10 @@
             <SideBar :isCollapse="isCollapse"/>
         </el-aside>
         <el-main>
-            <AppMain @changeCollapse="changeCollapse(isCollapse)"/>
-            <router-view/>
+            <AppMain v-on:handleFolder="handleFolder"/>
+            <transition mode="out-in">
+                <router-view/>
+            </transition>
         </el-main>
     </el-container>
 </template>
@@ -34,7 +36,7 @@ export default {
         }
     },
     methods: {
-        changeCollapse(isCollapse){
+        handleFolder(isCollapse){
             this.isCollapse = isCollapse;
         }
     }
